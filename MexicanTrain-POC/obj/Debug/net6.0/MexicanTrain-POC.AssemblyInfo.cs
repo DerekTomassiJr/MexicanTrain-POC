@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MexicanTrain-POC")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c31ff6e6e0f63ec5b5bc51a851ebad6f7ba8c7ca")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a116692c670f892c8884bfe2e59d6485b749aee7")]
 [assembly: System.Reflection.AssemblyProductAttribute("MexicanTrain-POC")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MexicanTrain-POC")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

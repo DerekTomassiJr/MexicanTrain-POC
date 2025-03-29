@@ -24,3 +24,5 @@ D:\Game Projects\MexicanTrain_POC\MexicanTrain-POC\obj\Debug\net6.0\refint\Mexic
 D:\Game Projects\MexicanTrain_POC\MexicanTrain-POC\obj\Debug\net6.0\MexicanTrain-POC.pdb
 D:\Game Projects\MexicanTrain_POC\MexicanTrain-POC\obj\Debug\net6.0\MexicanTrain-POC.genruntimeconfig.cache
 D:\Game Projects\MexicanTrain_POC\MexicanTrain-POC\obj\Debug\net6.0\ref\MexicanTrain-POC.dll
+D:\Game Projects\MexicanTrain_POC\MexicanTrain-POC\bin\Debug\net6.0\Content\MexicanTrainPOC.png
+D:\Game Projects\MexicanTrain_POC\MexicanTrain-POC\bin\Debug\net6.0\Content\MexicanTrainPOC.xnb
