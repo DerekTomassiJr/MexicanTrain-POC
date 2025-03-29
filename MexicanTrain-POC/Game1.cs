@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System.Collections.Generic;
+using System.Runtime.Intrinsics.Arm;
 
 namespace MexicanTrain_POC
 {
@@ -64,10 +65,13 @@ namespace MexicanTrain_POC
 
         private void LoadSprites()
         {
+            //isVisible should be optimized for this proof of concept
+
             SpriteObject domino = this._itemTextures.GenerateSpriteObjectFromAtlas(0, GraphicsDevice);
             domino.isVisible = true;
 
             SpriteObject dominoOutline = this._itemTextures.GenerateSpriteObjectFromAtlas(1, GraphicsDevice);
+            dominoOutline.position = new Vector2(32, 0); //test code will be replaced in the future
             dominoOutline.isVisible = true;
 
             _sprites = new List<SpriteObject> { domino, dominoOutline };

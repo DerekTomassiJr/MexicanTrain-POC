@@ -39,7 +39,8 @@ namespace HappyHourPhysicsTest.Utilities
                 return;
             }
 
-            spriteBatch.Draw(this.spriteTexture, this.position, Color.White);
+            Rectangle testRectangle = new Rectangle((int)position.X, (int)position.Y, 128, 128); //Test code
+            spriteBatch.Draw(this.spriteTexture, testRectangle, Color.White);
         }
 
         private Vector2 GenerateObjectSpawnPosition() 
