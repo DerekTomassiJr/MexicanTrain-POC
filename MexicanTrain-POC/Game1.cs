@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using System.Collections.Generic;
 
 namespace MexicanTrain_POC
 {
@@ -9,7 +10,8 @@ namespace MexicanTrain_POC
     {
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
-        private TextureAtlas itemTextures;
+        private TextureAtlas _itemTextures;
+        private List<SpriteObject> _sprites; 
 
         public Game1()
         {
@@ -34,7 +36,9 @@ namespace MexicanTrain_POC
             _spriteBatch = new SpriteBatch(GraphicsDevice);
 
             Texture2D itemTiles = Content.Load<Texture2D>(Constants.MexicanTrainTextureAtalas);
-            itemTextures = new TextureAtlas(this, itemTiles, 32, 32);
+            _itemTextures = new TextureAtlas(this, itemTiles, 32, 32);
+
+            LoadSprites();
         }
 
         protected override void Update(GameTime gameTime)
@@ -51,9 +55,30 @@ namespace MexicanTrain_POC
         {
             GraphicsDevice.Clear(new Color(1, 127, 1));
 
-            // TODO: Add your drawing code here
+            _spriteBatch.Begin();
+            this.DrawSpriteObjects();
+            _spriteBatch.End();
 
             base.Draw(gameTime);
+        }
+
+        private void LoadSprites()
+        {
+            SpriteObject domino = this._itemTextures.GenerateSpriteObjectFromAtlas(0, GraphicsDevice);
+            domino.isVisible = true;
+
+            SpriteObject dominoOutline = this._itemTextures.GenerateSpriteObjectFromAtlas(1, GraphicsDevice);
+            dominoOutline.isVisible = true;
+
+            _sprites = new List<SpriteObject> { domino, dominoOutline };
+        }
+
+        private void DrawSpriteObjects()
+        {
+            foreach (SpriteObject spriteObject in _sprites) 
+            {
+                spriteObject.DrawSpriteObject(_spriteBatch);
+            }
         }
 
         /// <summary>
