@@ -17,11 +17,13 @@ namespace Components
 
         private TextureAtlas textureAtlas;
         private GraphicsDevice graphicsDevice;
+        private GraphicsDeviceManager graphicsDeviceManager;
 
-        public Board(TextureAtlas textureAtlas, GraphicsDevice graphicsDevice)
+        public Board(TextureAtlas textureAtlas, GraphicsDevice graphicsDevice, GraphicsDeviceManager graphicsDeviceManager)
         {
             this.textureAtlas = textureAtlas;
             this.graphicsDevice = graphicsDevice;
+            this.graphicsDeviceManager = graphicsDeviceManager;
 
             InitializeBoard();
         }
@@ -31,7 +33,7 @@ namespace Components
             playedDominos = new List<SpriteObject>();
 
             currentDominoOutline = this.textureAtlas.GenerateSpriteObjectFromAtlas(1, graphicsDevice);
-            currentDominoOutline.position = new Vector2(32, 0); //test code will be replaced in the future
+            currentDominoOutline.position = new Vector2(this.graphicsDeviceManager.PreferredBackBufferWidth / 3 + 96, this.graphicsDeviceManager.PreferredBackBufferHeight / 4); //test code will be replaced in the future
             currentDominoOutline.isVisible = true;
         }
 

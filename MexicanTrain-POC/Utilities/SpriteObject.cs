@@ -39,8 +39,8 @@ namespace Utilities
                 return;
             }
 
-            Rectangle testRectangle = new Rectangle((int)position.X, (int)position.Y, 128, 128); //Test code
-            spriteBatch.Draw(spriteTexture, testRectangle, Color.White);
+            Rectangle destination = new Rectangle((int)position.X, (int)position.Y, 128, 128); //Test code
+            spriteBatch.Draw(spriteTexture, destination, Color.White);
         }
 
         private Vector2 GenerateObjectSpawnPosition()
