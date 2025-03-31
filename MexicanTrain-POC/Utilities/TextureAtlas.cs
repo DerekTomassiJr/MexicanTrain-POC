@@ -1,4 +1,4 @@
-﻿namespace HappyHourPhysicsTest.Utilities
+﻿namespace Utilities
 {
     using System;
     using Microsoft.Xna.Framework;
@@ -12,7 +12,7 @@
     public class TextureAtlas
     {
         public Game game;
-        
+
         /// <summary>
         /// Gets the texture that we are using as an Atlas to pull sprites from.
         /// </summary>
@@ -71,7 +71,7 @@
                 throw new ArgumentException("The spriteWidth and spriteHeight arguments must be a valid integer greater than 0.");
             }
 
-            
+
             Texture = content.Load<Texture2D>(texturePath);
             SpriteWidth = spriteWidth;
             SpriteHeight = spriteHeight;
@@ -133,12 +133,12 @@
             Rectangle spriteBox = new Rectangle((int)spritePosition.X, (int)spritePosition.Y, 32, 32);
 
             Color[] data = new Color[spriteBox.Width * spriteBox.Height];
-            this.Texture.GetData(0, spriteBox, data, 0, data.Length);
+            Texture.GetData(0, spriteBox, data, 0, data.Length);
 
             Texture2D spriteTexture = new Texture2D(graphicsDevice, spriteBox.Width, spriteBox.Height);
             spriteTexture.SetData(data);
 
-            return new SpriteObject(this.game, spriteTexture, spriteBox);
+            return new SpriteObject(game, spriteTexture, spriteBox);
         }
     }
 }

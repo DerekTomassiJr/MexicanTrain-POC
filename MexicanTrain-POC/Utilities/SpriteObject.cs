@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HappyHourPhysicsTest.Utilities
+namespace Utilities
 {
     public class SpriteObject : GameComponent
     {
@@ -20,31 +20,31 @@ namespace HappyHourPhysicsTest.Utilities
         {
             this.spriteTexture = spriteTexture;
             this.collisionBox = collisionBox;
-            this.spawnLocation = new Rectangle(0, 0, 0, 0);
-            this.position = new Vector2(0, 0);
+            spawnLocation = new Rectangle(0, 0, 0, 0);
+            position = new Vector2(0, 0);
         }
 
         public SpriteObject(Game game, Texture2D spriteTexture, Rectangle collisionBox, Rectangle spawnLocation) : base(game)
-        { 
+        {
             this.spriteTexture = spriteTexture;
             this.collisionBox = collisionBox;
             this.spawnLocation = spawnLocation;
-            this.position = GenerateObjectSpawnPosition();
+            position = GenerateObjectSpawnPosition();
         }
 
         public void DrawSpriteObject(SpriteBatch spriteBatch)
         {
-            if (!this.isVisible)
+            if (!isVisible)
             {
                 return;
             }
 
             Rectangle testRectangle = new Rectangle((int)position.X, (int)position.Y, 128, 128); //Test code
-            spriteBatch.Draw(this.spriteTexture, testRectangle, Color.White);
+            spriteBatch.Draw(spriteTexture, testRectangle, Color.White);
         }
 
-        private Vector2 GenerateObjectSpawnPosition() 
-        { 
+        private Vector2 GenerateObjectSpawnPosition()
+        {
             Random random = new Random();
             int spawnX = 0;
             int spawnY = 0;

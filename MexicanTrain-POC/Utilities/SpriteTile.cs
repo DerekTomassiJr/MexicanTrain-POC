@@ -1,4 +1,4 @@
-﻿namespace HappyHourPhysicsTest.Utilities
+﻿namespace Utilities
 {
     using Microsoft.Xna.Framework;
     using Vector2 = System.Numerics.Vector2;

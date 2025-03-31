@@ -1,9 +1,9 @@
-﻿using HappyHourPhysicsTest.Utilities;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System.Collections.Generic;
 using System.Runtime.Intrinsics.Arm;
+using Utilities;
 
 namespace MexicanTrain_POC
 {
@@ -12,7 +12,7 @@ namespace MexicanTrain_POC
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
         private TextureAtlas _itemTextures;
-        private List<SpriteObject> _sprites; 
+        private List<SpriteObject> _sprites;
 
         public Game1()
         {
