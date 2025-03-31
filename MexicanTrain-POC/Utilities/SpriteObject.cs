@@ -34,14 +34,6 @@ namespace Utilities
             }
         }
 
-        public SpriteObject(Game game, Texture2D spriteTexture, Rectangle collisionBox, Rectangle spawnLocation) : base(game)
-        {
-            this.spriteTexture = spriteTexture;
-            this.collisionBox = collisionBox;
-            this.spawnLocation = spawnLocation;
-            position = GenerateObjectSpawnPosition();
-        }
-
         public void DrawSpriteObject(SpriteBatch spriteBatch)
         {
             if (!isVisible)
@@ -53,20 +45,16 @@ namespace Utilities
             spriteBatch.Draw(spriteTexture, destination, Color.White);
         }
 
-        private Vector2 GenerateObjectSpawnPosition()
-        {
-            Random random = new Random();
-            int spawnX = 0;
-            int spawnY = 0;
-
-            return new Vector2(spawnX, spawnY);
-        }
-
         public void UpdatePosition(Vector2 position)
         {
             this.position = position;
-
             this.collisionBox = new Rectangle((int)this.position.X, (int)this.position.Y, this.collisionBox.Width, this.collisionBox.Height);
+
+            // Spawn location has not been set. Let's set it to our current collision box
+            if (this.spawnLocation.Width == 0 &&  this.spawnLocation.Height == 0) 
+            {
+                this.spawnLocation = this.collisionBox;
+            }
         }
     }
 }

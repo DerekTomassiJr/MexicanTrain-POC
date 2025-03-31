@@ -13,7 +13,7 @@ namespace Components
 {
     public class Hand
     {
-        private List<SpriteObject> playerDominos = new List<SpriteObject>();
+        private List<Domino> playerDominos = new List<Domino>();
         private int startingHandSize = 7;
         public Rectangle handRectangle = Rectangle.Empty;
 
@@ -36,7 +36,9 @@ namespace Components
             
             for (int i = 0; i < startingHandSize; i++) 
             {
-                SpriteObject domino = this.textureAtlas.GenerateSpriteObjectFromAtlas(0, graphicsDevice, true);
+                SpriteObject dominoSpriteObject = this.textureAtlas.GenerateSpriteObjectFromAtlas(0, graphicsDevice, true);
+                
+                Domino domino = Domino.CopyToDomino(dominoSpriteObject);
                 domino.UpdatePosition(new Vector2(handRectangle.X + (96 * i), handRectangle.Y - handRectangle.Height));
                 domino.isVisible = true;
 

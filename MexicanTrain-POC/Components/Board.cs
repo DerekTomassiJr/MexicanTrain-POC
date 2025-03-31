@@ -12,8 +12,8 @@ namespace Components
 {
     public class Board
     {
-        List<SpriteObject> playedDominos;
-        SpriteObject currentDominoOutline;
+        List<Domino> playedDominos;
+        DominoOutline currentDominoOutline;
 
         private TextureAtlas textureAtlas;
         private GraphicsDevice graphicsDevice;
@@ -30,9 +30,11 @@ namespace Components
 
         private void InitializeBoard() 
         {
-            playedDominos = new List<SpriteObject>();
+            playedDominos = new List<Domino>();
 
-            currentDominoOutline = this.textureAtlas.GenerateSpriteObjectFromAtlas(1, graphicsDevice);
+            SpriteObject dominoOutlineSpriteObject = this.textureAtlas.GenerateSpriteObjectFromAtlas(1, graphicsDevice);
+
+            currentDominoOutline = DominoOutline.CopyToDominoOutline(dominoOutlineSpriteObject);
             currentDominoOutline.UpdatePosition(new Vector2(this.graphicsDeviceManager.PreferredBackBufferWidth / 3 + 96, this.graphicsDeviceManager.PreferredBackBufferHeight / 4)); //test code will be replaced in the future
             currentDominoOutline.isVisible = true;
         }
