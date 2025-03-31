@@ -20,12 +20,14 @@ namespace Components
         private TextureAtlas textureAtlas;
         private GraphicsDevice graphicsDevice;
         private GraphicsDeviceManager graphicsDeviceManager;
+        public Game1 game { get; private set; }
 
-        public Hand(TextureAtlas textureAtlas, GraphicsDevice graphicsDevice, GraphicsDeviceManager graphicsDeviceManager)
+        public Hand(TextureAtlas textureAtlas, GraphicsDevice graphicsDevice, GraphicsDeviceManager graphicsDeviceManager, Game1 game)
         { 
             this.textureAtlas = textureAtlas;
             this.graphicsDevice = graphicsDevice;
             this.graphicsDeviceManager = graphicsDeviceManager;
+            this.game = game;
 
             CreateNewHand();
         }
@@ -38,7 +40,7 @@ namespace Components
             {
                 SpriteObject dominoSpriteObject = this.textureAtlas.GenerateSpriteObjectFromAtlas(0, graphicsDevice, true);
                 
-                Domino domino = Domino.CopyToDomino(dominoSpriteObject);
+                Domino domino = Domino.CopyToDomino(dominoSpriteObject, this);
                 domino.UpdatePosition(new Vector2(handRectangle.X + (96 * i), handRectangle.Y - handRectangle.Height));
                 domino.isVisible = true;
 

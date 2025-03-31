@@ -14,8 +14,9 @@ namespace MexicanTrain_POC
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
         private TextureAtlas _itemTextures;
-        private Hand _playerHand;
-        private Board _board;
+
+        public Hand _playerHand { get; private set; }
+        public Board _board { get; private set; }
 
         public Game1()
         {
@@ -70,7 +71,7 @@ namespace MexicanTrain_POC
 
         private void SetupGame()
         {
-            _playerHand = new Hand(_itemTextures, GraphicsDevice, _graphics);
+            _playerHand = new Hand(_itemTextures, GraphicsDevice, _graphics, this);
             _board = new Board(_itemTextures, GraphicsDevice, _graphics);
 
         }

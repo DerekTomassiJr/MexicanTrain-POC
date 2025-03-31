@@ -12,8 +12,8 @@ namespace Components
 {
     public class Board
     {
-        List<Domino> playedDominos;
-        DominoOutline currentDominoOutline;
+        public List<Domino> playedDominos { get; set; }
+        public DominoOutline currentDominoOutline { get; private set; }
 
         private TextureAtlas textureAtlas;
         private GraphicsDevice graphicsDevice;

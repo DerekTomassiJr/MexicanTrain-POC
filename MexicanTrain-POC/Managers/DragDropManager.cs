@@ -36,7 +36,7 @@ namespace Managers
         {
             if (InputManager.MouseReleased)
             {
-                //_dragItem.HandleObjectDropped();
+                _dragItem.HandleMouseRelease();
                 _dragItem = null;
             }
         }

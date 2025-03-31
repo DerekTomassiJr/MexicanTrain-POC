@@ -56,5 +56,10 @@ namespace Utilities
                 this.spawnLocation = this.collisionBox;
             }
         }
+
+        public virtual void HandleMouseRelease()
+        {
+            if (!isVisible) { return; }
+        }
     }
 }
