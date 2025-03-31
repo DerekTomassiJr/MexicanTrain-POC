@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using Components;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System.Collections.Generic;
@@ -12,7 +13,8 @@ namespace MexicanTrain_POC
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
         private TextureAtlas _itemTextures;
-        private List<SpriteObject> _sprites;
+        private Hand _playerHand;
+        private Board _board;
 
         public Game1()
         {
@@ -39,7 +41,7 @@ namespace MexicanTrain_POC
             Texture2D itemTiles = Content.Load<Texture2D>(Constants.MexicanTrainTextureAtalas);
             _itemTextures = new TextureAtlas(this, itemTiles, 32, 32);
 
-            LoadSprites();
+            SetupGame();
         }
 
         protected override void Update(GameTime gameTime)
@@ -63,26 +65,17 @@ namespace MexicanTrain_POC
             base.Draw(gameTime);
         }
 
-        private void LoadSprites()
+        private void SetupGame()
         {
-            //isVisible should be optimized for this proof of concept
+            _playerHand = new Hand(_itemTextures, GraphicsDevice);
+            _board = new Board(_itemTextures, GraphicsDevice);
 
-            SpriteObject domino = this._itemTextures.GenerateSpriteObjectFromAtlas(0, GraphicsDevice);
-            domino.isVisible = true;
-
-            SpriteObject dominoOutline = this._itemTextures.GenerateSpriteObjectFromAtlas(1, GraphicsDevice);
-            dominoOutline.position = new Vector2(32, 0); //test code will be replaced in the future
-            dominoOutline.isVisible = true;
-
-            _sprites = new List<SpriteObject> { domino, dominoOutline };
         }
 
         private void DrawSpriteObjects()
         {
-            foreach (SpriteObject spriteObject in _sprites) 
-            {
-                spriteObject.DrawSpriteObject(_spriteBatch);
-            }
+            _playerHand.RenderHand(_spriteBatch);
+            _board.RenderBoard(_spriteBatch);
         }
 
         /// <summary>
