@@ -127,7 +127,7 @@
             return new Vector2(spriteXPosition, spriteYPosition);
         }
 
-        public SpriteObject GenerateSpriteObjectFromAtlas(int id, GraphicsDevice graphicsDevice)
+        public SpriteObject GenerateSpriteObjectFromAtlas(int id, GraphicsDevice graphicsDevice, bool isDraggable = false)
         {
             Vector2 spritePosition = GetSpritePositionInAtlas(id);
             Rectangle spriteBox = new Rectangle((int)spritePosition.X, (int)spritePosition.Y, 32, 32);
@@ -138,7 +138,8 @@
             Texture2D spriteTexture = new Texture2D(graphicsDevice, spriteBox.Width, spriteBox.Height);
             spriteTexture.SetData(data);
 
-            return new SpriteObject(game, spriteTexture, spriteBox);
+            spriteBox = new Rectangle((int)spritePosition.X, (int)spritePosition.Y, 128, 128);
+            return new SpriteObject(game, spriteTexture, spriteBox, isDraggable);
         }
     }
 }

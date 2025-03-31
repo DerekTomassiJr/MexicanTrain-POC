@@ -36,8 +36,8 @@ namespace Components
             
             for (int i = 0; i < startingHandSize; i++) 
             {
-                SpriteObject domino = this.textureAtlas.GenerateSpriteObjectFromAtlas(0, graphicsDevice);
-                domino.position = new Vector2(handRectangle.X + (96 * i), handRectangle.Y - handRectangle.Height);
+                SpriteObject domino = this.textureAtlas.GenerateSpriteObjectFromAtlas(0, graphicsDevice, true);
+                domino.UpdatePosition(new Vector2(handRectangle.X + (96 * i), handRectangle.Y - handRectangle.Height));
                 domino.isVisible = true;
 
                 playerDominos.Add(domino);

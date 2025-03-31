@@ -33,7 +33,7 @@ namespace Components
             playedDominos = new List<SpriteObject>();
 
             currentDominoOutline = this.textureAtlas.GenerateSpriteObjectFromAtlas(1, graphicsDevice);
-            currentDominoOutline.position = new Vector2(this.graphicsDeviceManager.PreferredBackBufferWidth / 3 + 96, this.graphicsDeviceManager.PreferredBackBufferHeight / 4); //test code will be replaced in the future
+            currentDominoOutline.UpdatePosition(new Vector2(this.graphicsDeviceManager.PreferredBackBufferWidth / 3 + 96, this.graphicsDeviceManager.PreferredBackBufferHeight / 4)); //test code will be replaced in the future
             currentDominoOutline.isVisible = true;
         }
 

@@ -1,4 +1,5 @@
 ﻿using Components;
+using Managers;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -50,6 +51,8 @@ namespace MexicanTrain_POC
                 Exit();
 
             // TODO: Add your update logic here
+            InputManager.Update();
+            DragDropManager.Update();
 
             base.Update(gameTime);
         }
@@ -67,8 +70,8 @@ namespace MexicanTrain_POC
 
         private void SetupGame()
         {
-            _playerHand = new Hand(_itemTextures, GraphicsDevice);
-            _board = new Board(_itemTextures, GraphicsDevice);
+            _playerHand = new Hand(_itemTextures, GraphicsDevice, _graphics);
+            _board = new Board(_itemTextures, GraphicsDevice, _graphics);
 
         }
 
